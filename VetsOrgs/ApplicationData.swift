@@ -23,3 +23,47 @@ struct ApplicationData {
     }
 }
 var AppData = ApplicationData()
+/*
+ from, project vetx-01
+ 
+ i suspect the initial read will occur in AppDelegate
+     and details gets set here using a variable
+ use later in data fetch
+ let fullText = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+ -------------
+ origin: let readin = fullText.componentsSeparatedByString("\n") as [String]
+ change: create a single variable containing raw data
+ let readin = rawData.componentsSeparatedByString("\n") as [String]
+ rawData = "Air Force Association","N/A","N/A","N/A","N/A","N/A"/n"Air Force Sergeants Association","N/A","N/A","N/A","N/A","N/A"/n"American Ex-Prisoners of War","N/A","N/A","N/A","N/A","N/A"/n"American G.I. Forum","N/A","N/A","N/A","N/A","N/A"/n"American Legion","N/A","N/A","N/A","N/A","N/A"/n"American Veterans (AMVETS)","N/A","N/A","N/A","N/A","N/A"/n"American Veterans Committee","N/A","N/A","N/A","N/A","N/A"
+ -------------
+ required:
+ var dictOrgs = [String:String]()
+ var arrayOrgs = NSMutableArray()
+ 
+ for i in 1..<readin.count {
+ let orgsData = readin[i].componentsSeparatedByString(",")
+ 
+ dictOrgs["OrgName"] = "\(orgsData[0])"
+ dictOrgs["website"] = "\(orgsData[1])"
+ dictOrgs["phone"]   = "\(orgsData[2])"
+ dictOrgs["email"]   = "\(orgsData[3])"
+ dictOrgs["twitter"] = "\(orgsData[4])"
+ dictOrgs["FBPage"]  = "\(orgsData[5])"
+ 
+ arrayOrgs.addObjects(from: dictOrgs)
+ 
+ }
+ } catch let error as NSError {
+ print("Error: \(error)")
+ }
+ }
+ self.title = "Number of Organizations: \(arrayOrgs.count)"
+ 
+ }
+ 
+THEN:
+ build variable 'preDetails'
+ preDetails/details: [String: [String]]
+  a loop that reads [0] from each arrayOrgs record, prepends to preDetails record
+ 
+ */

@@ -16,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        var dictOrgs = [String:String]()
+        var arrayOrgs = NSMutableArray()
+        var rawData = "Air Force Association,N/A,N/A,N/A,N/A,N/A\nAir Force Sergeants Association,N/A,N/A,N/A,N/A,N/A\nAmerican Ex-Prisoners of War,N/A,N/A,N/A,N/A,N/A\nAmerican G.I. Forum,N/A,N/A,N/A,N/A,N/A\nAmerican Legion,N/A,N/A,N/A,N/A,N/A\nAmerican Veterans (AMVETS),N/A,N/A,N/A,N/A,N/A\nAmerican Veterans Committee,N/A,N/A,N/A,N/A,N/A"
+        do {
+            let fullText = rawData
+            let readin = fullText.components(separatedBy: "\n")
+            // Result has 3 strings.
+            print(readin.count)
+            print(readin)
+        
+            // Loop over string array.
+            for part in readin {
+                print(part)
+            }
+        }
         return true
     }
 
