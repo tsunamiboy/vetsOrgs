@@ -18,17 +18,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         var dictOrgs = [String:String]()
         var arrayOrgs = NSMutableArray()
-        var rawData = "Air Force Association,N/A,N/A,N/A,N/A,N/A\nAir Force Sergeants Association,N/A,N/A,N/A,N/A,N/A\nAmerican Ex-Prisoners of War,N/A,N/A,N/A,N/A,N/A\nAmerican G.I. Forum,N/A,N/A,N/A,N/A,N/A\nAmerican Legion,N/A,N/A,N/A,N/A,N/A\nAmerican Veterans (AMVETS),N/A,N/A,N/A,N/A,N/A\nAmerican Veterans Committee,N/A,N/A,N/A,N/A,N/A"
+//        var arrayOrgs: Array<Any>
+        let rawData = "Blinded Veterans Association,N/A,N/A,N/A,N/A,N/A\nCatholic War Veterans,N/A,N/A,N/A,N/A,N/A\nCenter for American Homeless Veterans,N/A,N/A,N/A,N/A,N/A\nDisabled American Veterans (DAV),N/A,N/A,N/A,N/A,N/A\nFleet Reserve Association,N/A,N/A,N/A,N/A,N/A\nGrand Army of the Republic,N/A,N/A,N/A,N/A,N/A\nIraq and Afghanistan Veterans of America,N/A,N/A,N/A,N/A,N/A"
         do {
+//           From vetx-01 (Swift 2)
+//           let readin = fullText.componentsSeparatedByString("\n") as [String]
             let fullText = rawData
             let readin = fullText.components(separatedBy: "\n")
             // Result has 3 strings.
             print(readin.count)
             print(readin)
-        
+            
             // Loop over string array.
-            for part in readin {
-                print(part)
+//            for part in readin {
+            for i in 0..<readin.count {
+                print("line #\(i+1): \(readin[i])")
+                
+                /*
+                 From vetx-01 (Swift 2)
+                 for i in 1..<readin.count {
+                 let orgsData = readin[i].componentsSeparatedByString(",")
+                 
+                 dictOrgs["OrgName"] = "\(orgsData[0])"
+                 dictOrgs["website"] = "\(orgsData[1])"
+                 dictOrgs["phone"]   = "\(orgsData[2])"
+                 dictOrgs["email"]   = "\(orgsData[3])"
+                 dictOrgs["twitter"] = "\(orgsData[4])"
+                 dictOrgs["FBPage"]  = "\(orgsData[5])"
+                 
+                 arrayOrgs.addObjects(from: dictOrgs)
+                 */
+                let orgsData = readin[i].components(separatedBy: ",")
+                
+                dictOrgs["OrgName"] = "\(orgsData[0])"
+                dictOrgs["website"] = "\(orgsData[1])"
+                dictOrgs["phone"]   = "\(orgsData[2])"
+                dictOrgs["email"]   = "\(orgsData[3])"
+                dictOrgs["twitter"] = "\(orgsData[4])"
+                dictOrgs["FBPage"]  = "\(orgsData[5])"
+                
+                print(dictOrgs)
+                
+                arrayOrgs.addObjects(from: [dictOrgs as Any])
+
+            }
+//            arrayOrgs.forEach() { print($0) }
+//            print(arrayOrgs.description)
+            print("------------------------")
+            for element in arrayOrgs {
+                print(element)
             }
         }
         return true
