@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         var dictOrgs = [String:String]()
         var arrayOrgs = NSMutableArray()
+        var itemStr: String = ""
+        var item = [String] ()
 //        var arrayOrgs: Array<Any>
         let rawData = "Blinded Veterans Association,N/A,N/A,N/A,N/A,N/A\nCatholic War Veterans,N/A,N/A,N/A,N/A,N/A\nCenter for American Homeless Veterans,N/A,N/A,N/A,N/A,N/A\nDisabled American Veterans (DAV),N/A,N/A,N/A,N/A,N/A\nFleet Reserve Association,N/A,N/A,N/A,N/A,N/A\nGrand Army of the Republic,N/A,N/A,N/A,N/A,N/A\nIraq and Afghanistan Veterans of America,N/A,N/A,N/A,N/A,N/A"
         do {
@@ -50,6 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                  */
                 let orgsData = readin[i].components(separatedBy: ",")
                 
+                itemStr = "\u{22}\(orgsData[0])\u{22}"
+                print("itemStr = ", itemStr)
+                
                 dictOrgs["OrgName"] = "\(orgsData[0])"
                 dictOrgs["website"] = "\(orgsData[1])"
                 dictOrgs["phone"]   = "\(orgsData[2])"
@@ -60,11 +65,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(dictOrgs)
                 
                 arrayOrgs.addObjects(from: [dictOrgs as Any])
+                item.insert(itemStr, at: i)
 
             }
 //            arrayOrgs.forEach() { print($0) }
 //            print(arrayOrgs.description)
             print("------------------------")
+            for element in item {
+                print(element)
+            }
             for element in arrayOrgs {
                 print(element)
             }
