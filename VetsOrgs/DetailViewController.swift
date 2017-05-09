@@ -31,12 +31,12 @@ class DetailViewController: UIViewController {
 //                imageItem.image = UIImage(named: data[0])
 //                nutritionItem.text = data[1]
                 nameLabel.text = item
-                phoneLabel.text = data[1]
-                webLabel.text = data[2]
-                twitterLabel.text = data[3]
-                emailLabel.text = data[4]
-                fbLabel.text = data[5]
-                contactLabel.text = data[6]
+                phoneLabel.text = data[0]
+                webLabel.text = data[1]
+                twitterLabel.text = data[2]
+                emailLabel.text = data[3]
+                fbLabel.text = data[4]
+                contactLabel.text = data[5]
             }
         }
     }

@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //            let data = AppData.items
             let data = AppData.orgNames
+            print("data.count =", data.count)
             return data.count
         }
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
