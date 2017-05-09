@@ -18,11 +18,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             myTable.dataSource = self
         }
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            let data = AppData.items
+//            let data = AppData.items
+            let data = AppData.orgNames
             return data.count
         }
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let data = AppData.items
+//            let data = AppData.items
+            let data = AppData.orgNames
             let cell = myTable.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
             cell.textLabel?.text = data[indexPath.row]
             return cell

@@ -23,8 +23,10 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         if selected != nil {
-            let item = AppData.items[selected]
-            if let data = AppData.details[item] {
+//            let item = AppData.items[selected]
+            let item = AppData.orgNames[selected]
+
+            if let data = AppData.orgDetails[item] {
 //                titleItem.text = item
 //                imageItem.image = UIImage(named: data[0])
 //                nutritionItem.text = data[1]
