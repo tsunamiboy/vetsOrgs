@@ -36,9 +36,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("indexPath.row=", indexPath.row, "  func Row count=", funcRowCount)
             return cell
         }
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            performSegue(withIdentifier: "showDetails", sender: self)
-        }
+//    caused a ghost detail view to be generated
+//        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//            performSegue(withIdentifier: "showDetails", sender: self)
+//        }
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "showDetails" {
                 let controller = segue.destination as! DetailViewController

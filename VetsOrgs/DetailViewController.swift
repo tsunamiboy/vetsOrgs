@@ -10,10 +10,12 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var missionLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var webLabel: UILabel!
     @IBOutlet weak var twitterLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var fbLabel: UILabel!
     @IBOutlet weak var contactLabel: UILabel!
     
@@ -31,12 +33,14 @@ class DetailViewController: UIViewController {
 //                imageItem.image = UIImage(named: data[0])
 //                nutritionItem.text = data[1]
                 nameLabel.text = item
-                phoneLabel.text = data[0]
-                webLabel.text = data[1]
-                twitterLabel.text = data[2]
+                addressLabel.text = data[0]
+                missionLabel.text = data[1]
+                phoneLabel.text = data[2]
                 emailLabel.text = data[3]
-                fbLabel.text = data[4]
-                contactLabel.text = data[5]
+                webLabel.text = data[4]
+                twitterLabel.text = data[5]
+                fbLabel.text = data[6]
+                contactLabel.text = data[7]
             }
         }
     }
