@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
         
         if selected != nil {
 //            let item = AppData.items[selected]
-            let item = AppData.orgNames[selected]
+            let item = AppData.filteredOrgs[selected]
 
             if let data = AppData.orgDetails[item] {
 //                titleItem.text = item
