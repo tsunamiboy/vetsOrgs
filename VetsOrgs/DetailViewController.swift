@@ -9,15 +9,15 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var missionLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var webLabel: UILabel!
-    @IBOutlet weak var twitterLabel: UILabel!
-    @IBOutlet weak var fbLabel: UILabel!
-    @IBOutlet weak var contactLabel: UILabel!
+    @IBOutlet weak var nameText: UITextField!
+    @IBOutlet weak var addressText: UITextView!
+    @IBOutlet weak var missionText: UITextView!
+    @IBOutlet weak var phoneText: UITextField!
+    @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var websiteText: UITextField!
+    @IBOutlet weak var twitterText: UITextField!
+    @IBOutlet weak var fbpageText: UITextField!
+    @IBOutlet weak var contactText: UITextField!
     
     var selected: Int!
     
@@ -32,15 +32,15 @@ class DetailViewController: UIViewController {
 //                titleItem.text = item
 //                imageItem.image = UIImage(named: data[0])
 //                nutritionItem.text = data[1]
-                nameLabel.text = item
-                addressLabel.text = data[0]
-                missionLabel.text = data[1]
-                phoneLabel.text = data[2]
-                emailLabel.text = data[3]
-                webLabel.text = data[4]
-                twitterLabel.text = data[5]
-                fbLabel.text = data[6]
-                contactLabel.text = data[7]
+                nameText.text = item
+                addressText.text = data[0]
+                missionText.text = data[1]
+                phoneText.text = data[2]
+                emailText.text = data[3]
+                websiteText.text = data[4]
+                twitterText.text = data[5]
+                fbpageText.text = data[6]
+                contactText.text = data[7]
             }
         }
     }
