@@ -20,19 +20,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var contactText: UITextField!
     
     var selected: Int!
+    var newData: Array<String> = []
+    var org: String = "error"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if selected != nil {
-//            let item = AppData.items[selected]
-            let item = AppData.filteredOrgs[selected]
-
-            if let data = AppData.orgDetails[item] {
-//                titleItem.text = item
-//                imageItem.image = UIImage(named: data[0])
-//                nutritionItem.text = data[1]
-                nameText.text = item
+            if let data = AppData.orgDetails[org] {
+                nameText.text = org
                 addressText.text = data[0]
                 missionText.text = data[1]
                 phoneText.text = data[2]
@@ -44,4 +40,44 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func changeData(_ sender: UIButton) {
+        org = AppData.filteredOrgs[selected]
+        var text: String
+        
+        text = addressText.text!
+        text = text.trimmingCharacters(in: .whitespaces)
+        newData.append(text)
+        
+        text = missionText.text!
+        text = text.trimmingCharacters(in: .whitespaces)
+        newData.append(text)
+      
+        text = phoneText.text!
+        text = text.trimmingCharacters(in: .whitespaces)
+        newData.append(text)
+        
+        text = emailText.text!
+        text = text.trimmingCharacters(in: .whitespaces)
+        newData.append(text)
+        
+        text = websiteText.text!
+        text = text.trimmingCharacters(in: .whitespaces)
+        newData.append(text)
+        
+        text = twitterText.text!
+        text = text.trimmingCharacters(in: .whitespaces)
+        newData.append(text)
+        
+        text = fbpageText.text!
+        text = text.trimmingCharacters(in: .whitespaces)
+        newData.append(text)
+        
+        text = contactText.text!
+        text = text.trimmingCharacters(in: .whitespaces)
+        newData.append(text)
+        
+        AppData.updateDetails(org: org, arr: newData )
+        }
+//    }
 }

@@ -18,7 +18,9 @@ struct ApplicationData {
 //        }
 //    }
 //    var details: [String: [String]]
-    
+  
+//    Following bools used to switch from built-in value to saved values
+//    values used are values saved
     var useExistingOrgs: Bool = true
 //    var useExistingOrgs: Bool = false
     var useExistingDtls: Bool = true
@@ -80,12 +82,17 @@ struct ApplicationData {
         }
         filteredOrgs.sort(by: { (value1, value2) in value1 < value2 })
     }
-//    mutating func updateDetails(index: Int, name: String) {
-    /*
-    mutating func updateDetails() {
-//        orgDetails[index] = name
+    mutating func updateDetails(org: String, arr: Array<String>!) {
+        orgDetails[org]?.removeAll()
+        orgDetails[org]?.append(arr[0])
+        orgDetails[org]?.append(arr[1])
+        orgDetails[org]?.append(arr[2])
+        orgDetails[org]?.append(arr[3])
+        orgDetails[org]?.append(arr[4])
+        orgDetails[org]?.append(arr[5])
+        orgDetails[org]?.append(arr[6])
+        orgDetails[org]?.append(arr[7])
         NSKeyedArchiver.archiveRootObject(orgDetails, toFile: filePath)
     }
- */
 }
 var AppData = ApplicationData()
