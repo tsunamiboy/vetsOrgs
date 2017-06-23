@@ -21,13 +21,20 @@ class DetailViewController: UIViewController {
     
     var selected: Int!
     var newData: Array<String> = []
-    var org: String = "error"
+    var org: String = "unset"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("detailViewContoller selected = ",selected)
+        print("Org =",org)
+        
         if selected != nil {
-            if let data = AppData.orgDetails[org] {
+             let org = AppData.filteredOrgs[selected]
+             if let data = AppData.orgDetails[org] {
+                print("Org =",org)
+                print("data =",data)
+
                 nameText.text = org
                 addressText.text = data[0]
                 missionText.text = data[1]
@@ -37,6 +44,7 @@ class DetailViewController: UIViewController {
                 twitterText.text = data[5]
                 fbpageText.text = data[6]
                 contactText.text = data[7]
+
             }
         }
     }

@@ -52,6 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let controller = segue.destination as! DetailViewController
                 if let path = myTable.indexPathForSelectedRow {
                     controller.selected = path.row
+                    print("viewContoller selected = ",controller.selected)
                 }
             }
         }
